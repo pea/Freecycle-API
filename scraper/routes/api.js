@@ -3,32 +3,39 @@
 var express = require('express');
 var router = express.Router();
 
-const r = require('rethinkdb');
+var MongoClient = require('mongodb').MongoClient
+  , assert = require('assert');
+
 const config = require('../services/scrape/constants/config');
 
 const dbConfig = config.db;
 const groups = config.freecycle.groups;
 
+/**
+ * /api/offers Endpoint
+ */
+
+router.get('/offers', (req, res, next) => {
+  MongoClient.connect(dbConfig.url, function(err, db) {
+    db.collection('posts').find({}).toArray(function(error, documents) {
+      if (err) throw error;
+      db.close();
+      res.send(documents);
+    });
+  });
+});
+
+/**
+ * /api/offers/group Endpoint
+ */
+
 router.get('/offers/:group', (req, res, next) => {
-  if (groups.indexOf(req.params.group) == -1) {
-    return res.send({error: "InalidGroup"});
-  }
-  r.connect(dbConfig)
-  .then( conn => {
-      r.table("posts").filter({
-        "group": req.params.group,
-        "type": "offer"
-      })
-      .limit(100)
-      .run(conn, (err, cursor) => {
-        var rows = [];
-        cursor.each((err, row) => {
-          if (err) throw err;
-          rows.push(row);
-        }, () => {
-          res.send(rows);
-        }); 
-      });
+  MongoClient.connect(dbConfig.url, function(err, db) {
+    db.collection('posts').find({"group":req.params.group}).toArray(function(error, documents) {
+      if (err) throw error;
+      db.close();
+      res.send(documents);
+    });
   });
 });
 

@@ -14,7 +14,7 @@ const parsePosts = (rawHTML, groupName) => {
       let leftCell = $(tr).children().eq(0).text();
       let rightCell = $(tr).children().eq(1).text();
 
-      post.id = leftCell.match(/#(\d+)/m)[1];
+      post._id = leftCell.match(/#(\d+)/m)[1];
       post.type = leftCell.includes('OFFER') ? 'offer' : 'unknown';
       post.group = groupName;
       post.date = Date.create(leftCell.match(/\n.+\n(.+)/)[1].trim());

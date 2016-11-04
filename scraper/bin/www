@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+var cron = require('node-cron'),
+    exec = require('child_process').exec;;
+
 /**
  * Module dependencies.
  */
@@ -88,3 +91,12 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * Cron Jobs
+ */
+cron.schedule('*/15 * * * *', function(){
+  exec('npm run scrape', function(error, stdout, stderr) {
+    console.log(stdout);
+  });
+});

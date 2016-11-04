@@ -22,22 +22,23 @@ let scrape = group => {
       return insertPosts(posts); //post results to DB and return changes
     })
 
-    .then( changes => {
+    /*.then( changes => {
       if (changes) {
         let promises = [];
         changes.forEach( post => {
           promises.push(
             getLocation(post)
               .then( location => {
+                console.log(post);
                 return insertLocation(post, location);
               })
               .catch( err => console.log(err))
           );
         })
         return Promise.all(promises);
-      } else {
+      } else {*/
         return Promise.resolve(null);
-      }
+      //}
     })
 
     .then( () => {

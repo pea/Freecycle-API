@@ -1,6 +1,8 @@
 'use strict';
 
-const r = require('rethinkdb');
+
+const MongoClient = require('mongodb').MongoClient
+  , assert = require('assert');
 const config = require('../constants/config');
 
 const dbConfig = config.db;
@@ -9,17 +11,15 @@ const groups = config.freecycle.groups;
 const insertPosts = data => {
   const promise = new Promise( (resolve, reject) => {
     if(!data){ resolve(null) }
-    r.connect(dbConfig).then( conn => {
-      r.table('posts')
-        .insert(data, {conflict: 'update', returnChanges: true})
-        .run(conn)
-        .then( res => {
-          conn.close( () => resolve( _filterChanges(res, data[0].group) ) )
-        })
-        .error( err => {
-          conn.close( () => reject(err) )
-        });
+
+    MongoClient.connect(dbConfig.url, (err, db) => {
+      if (err) () => { db.close(); reject(err); }
+      db.collection('posts').insert(data, (err,docsInserted) => {
+        console.log(docsInserted.nModified());
+      });
+      db.close();
     });
+
   });
   return promise;
 };
