@@ -41,11 +41,11 @@ let scrape = group => {
       //}
     //});
 
-    .then( () => {
+    /*.then( () => {
       console.log(" [" + group + "] Finished");
     })
 
-    .catch(err => console.log(err));
+    .catch(err => console.log(err));*/
 }
 
 console.log("******[SCRAPING STARTED FOR " + groups.length + " groups]******");

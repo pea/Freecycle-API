@@ -1,6 +1,5 @@
 'use strict';
 
-
 const MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 const config = require('../constants/config');
@@ -15,7 +14,7 @@ const insertPosts = data => {
     MongoClient.connect(dbConfig.url, (err, db) => {
       if (err) () => { db.close(); reject(err); }
       db.collection('posts').insert(data, (err,docsInserted) => {
-        console.log(docsInserted.nModified());
+        console.log(docsInserted);
       });
       db.close();
     });

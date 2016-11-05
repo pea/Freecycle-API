@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 exports.freecycle = {
   url: 'https://groups.freecycle.org/group/',
   groups1: ['hammersmithandfulhamfreecycle'],

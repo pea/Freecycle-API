@@ -3,7 +3,8 @@ Scrapes Freecycle groups and creates API from data. Scraper based off [Hughjmp's
 
 # Install
 ## 1. Set Up Database
-Create a new database (Recommended: https://mlab.com) and set MONGODB_URL as the database url provided in Freecycle-API/app/.env.example. Then rename .env.example to .env.
+Create a new database (Recommended: https://mlab.com) with a collection called 'posts' and set MONGODB_URL as the database url provided in Freecycle-API/app/.env.example. Then rename .env.example to .env.
+
 ## 2. Install Dependencies
 ```ssh
 $ cd Freecycle-API/
