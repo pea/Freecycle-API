@@ -31,8 +31,8 @@ const parsePosts = (rawHTML, groupName) => {
         post.location = post.location.slice(1,-1).trim(); //remove the brackets
       }
 
-      post.url = config.freecycle.url + post.group + '/posts/' + post.id;
-      post.image_url = config.freecycle.url + post.group + '/post_image/' + post.id;
+      post.url = config.freecycle.url + post.group + '/posts/' + post._id;
+      post.image_url = config.freecycle.url + post.group + '/post_image/' + post._id;
 
       posts.push(post);
     });
