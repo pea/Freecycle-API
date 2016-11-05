@@ -39,7 +39,7 @@ let scrape = group => {
       } else {*/
         return Promise.resolve(null);
       //}
-    })
+    //});
 
     .then( () => {
       console.log(" [" + group + "] Finished");
