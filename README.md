@@ -4,7 +4,6 @@ Scrapes Freecycle groups and creates API from data. Scraper based off [Hughjmp's
 # Install
 ## 1. Set Up Database
 Create a new database (Recommended: https://mlab.com) and set MONGODB_URL as the database url provided in Freecycle-API/app/.env.example. Then rename .env.example to .env.
-
 ## 2. Install Dependencies
 ```ssh
 $ cd Freecycle-API/
@@ -34,7 +33,7 @@ For each environment variable execute the following. This only needs to be done 
 ```ssh
 $ now secrets add mongodb-url "<MONGODB_URL>"
 $ now -e MONGODB_URL=@mongodb-url
-``
+```
 ## 3. Deploy
 ```ssh
 $ cd Freecycle-API/
