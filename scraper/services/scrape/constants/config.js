@@ -19,12 +19,6 @@ exports.google = {
   geolocationURL: 'https://maps.googleapis.com/maps/api/geocode/json'
 };
 
-/*exports.db = {
-  host: 'localhost',
-  port: '28015',
-  db: 'freecycle'
-};*/
-
 exports.db = {
-  url: 'mongodb://freecycle:btpbvdKGXh9E7v@ds035856.mlab.com:35856/freecycle'
+  url: process.env.MONGODB_URL
 };

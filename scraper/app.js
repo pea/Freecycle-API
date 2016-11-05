@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var apiRoute = require('./routes/api');
+var appRoute = require('./routes/app');
 
 var app = express();
 
@@ -31,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * Routes
  */
 app.use('/api', apiRoute);
+app.use('/', appRoute);
 
 /**
  * HTTP Error Handling

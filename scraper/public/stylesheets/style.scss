@@ -1,7 +1,23 @@
+@import 'https://fonts.googleapis.com/css?family=Playfair+Display';
+
+html {
+    background-color: #150d17;
+    color: #ded5e2;
+    font-family: helvetica;
+    line-height: 1.3em;
+    letter-spacing: 0.03em;
+    -webkit-font-smoothing: antialiased;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
-  color: #000;
+  color: #ded5e2;
+}
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display';
+    letter-spacing: 0.05em;
+    text-shadow: rgba(255, 255, 255, 0.3) 0px 0px 5px;
+    color: rgb(255, 255, 255);
 }
