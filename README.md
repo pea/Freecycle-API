@@ -6,22 +6,15 @@ Scrapes Freecycle groups and creates API from data. Scraper based off [Hughjmp's
 Create a new database (Recommended: https://mlab.com) and set MONGODB_URL as the database url provided in Freecycle-API/app/.env.example. Then rename .env.example to .env.
 
 ## 2. Install Dependencies
-Install Express
 ```ssh
-$ cd Freecycle-API/app/
-$ npm install
-```
-
-Install Express dependencies
-```ssh
-$ cd Freecycle-API/app/
+$ cd Freecycle-API/
 $ npm install
 ```
 
 # Start Server
 Development
 ```ssh
-cd Freecycle-API/app/
+cd Freecycle-API/
 npm run dev
 ```
 Production
