@@ -3,30 +3,30 @@ Scrapes Freecycle groups and creates API from data. Scraper based off [Hughjmp's
 
 # Install
 ## 1. Set Up Database
-Create a new database (Recommended: https://mlab.com) and set MONGODB_URL as the database url provided in scraper/scraper/.env.example. Then rename .env.example to .env.
+Create a new database (Recommended: https://mlab.com) and set MONGODB_URL as the database url provided in Freecycle-API/app/.env.example. Then rename .env.example to .env.
 
 ## 2. Install Dependencies
 Install Express
 ```ssh
-$ cd /scraper
+$ cd Freecycle-API/app/
 $ npm install
 ```
 
 Install Express dependencies
 ```ssh
-$ cd /scraper/scraper
+$ cd Freecycle-API/app/
 $ npm install
 ```
 
 # Start Server
 Development
 ```ssh
-cd scraper/scraper
+cd Freecycle-API/app/
 npm run dev
 ```
 Production
 ```ssh
-$ cd scraper scraper
+$ cd Freecycle-API/app/
 $ npm run start
 ```
 
@@ -44,5 +44,6 @@ $ now -e MONGODB_URL=@mongodb-url
 ``
 ## 3. Deploy
 ```ssh
+$ cd Freecycle-API/
 $ npm run deploy
 ```
